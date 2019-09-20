@@ -6,8 +6,13 @@
 class Player : public Status
 {
 private:
-
+	bool SelectJudge;
 public:
+	Player();
+	~Player();
+
+	int GetSelectJudge();
+	void SetSelectJudge(bool Judge);
 	void CommandSelect();
 };
 
