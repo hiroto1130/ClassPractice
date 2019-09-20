@@ -1,4 +1,4 @@
-#include"ClassInheritance.h"
+#include"Enemy.h"
 
 namespace enemy
 {

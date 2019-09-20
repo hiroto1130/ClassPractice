@@ -1,5 +1,5 @@
-﻿#ifndef CLASSINHRITANCE_H
-#define CLASSINHRITANCE_H
+﻿#ifndef ENEMY_H
+#define ENEMY_H
 
 class Enemy
 {

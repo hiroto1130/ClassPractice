@@ -1,7 +1,7 @@
 ﻿#include<iostream>
 // #include<fstream>
 
-#include"ClassInheritance.h"
+#include"Enemy.h"
 
 Enemy::Enemy()
 {
