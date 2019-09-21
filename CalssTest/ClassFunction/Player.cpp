@@ -34,19 +34,31 @@ void Player::CommandSelect()
 	{
 		std::cin >> MoveSelect;
 
-		switch (MoveSelect)
+		if (MoveSelect == 0) // 単語なのかのチェック
 		{
-		case 0:
 			std::cout << "再入力してください " << std::endl;
-			break;
-		case 1:
-			SetSelectJudge(true);
-			break;
-		case 2:
-			SetSelectJudge(true);
-			break;
+			std::cin.clear();
+			std::cin.ignore();
 		}
-
+		else
+			if (MoveSelect == 1) // 攻撃
+			{
+				SetSelectJudge(true); // 防御
+				std::cout << "プレイヤーの攻撃" << std::endl;
+			}
+			else
+				if (MoveSelect == 2)
+				{
+					SetSelectJudge(true);
+					std::cout << "プレイヤーは防御している" << std::endl;
+				}
+				else
+					if (MoveSelect >= 3) // 3以上の値が入力されたか
+					{
+						std::cout << "再入力してください " << std::endl;
+						std::cin.clear();
+						std::cin.ignore();
+					}
 	}
 
 }
