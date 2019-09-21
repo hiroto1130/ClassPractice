@@ -3,12 +3,14 @@
 
 #include"Status.h"
 
-class Enemy  : public Status
+class Enemy : public Status
 {
 private:
 
 public:
-
+	Enemy();
+	~Enemy();
+	void CommandSelect();
 };
 
 #endif
