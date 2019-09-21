@@ -62,3 +62,57 @@ void Player::CommandSelect()
 	}
 
 }
+
+void Player::BattleProcess(Enemy* enemy)
+{
+
+	switch (MoveSelect)
+	{
+		// 攻撃判定 
+	case 1:
+		// 防御しているとき
+		if (enemy->GetMoveSelect() == 2)
+		{
+			// ダメージを与えられるか
+			if ((AT - enemy->GetDF()) > 0)
+			{
+				// ダメージ計算
+				enemy->SetHp(enemy->GetHp() - (AT - enemy->GetDF()));
+				std::cout << "敵に" << (AT - enemy->GetDF()) << "のダメージ" << std::endl;
+			}
+			else
+				if ((AT - enemy->GetDF()) <= 0)
+				{
+					std::cout << "効果は無いようだ..." << std::endl;
+				}
+		}
+		else // 防御してないとき
+		{
+			enemy->SetHp(enemy->GetHp() - AT);
+			std::cout << "敵に" << AT << "のダメージ" << std::endl;
+		}
+		break;
+
+		// 防御判定
+	case 2:
+		// 敵が攻撃しているかどうか
+		if (enemy->GetMoveSelect() == 1)
+		{
+			// 受けるダメージがあるか
+			if ((enemy->GetAT() - DF) > 0)
+			{
+				// ダメージ計算
+				HP = HP - (enemy->GetAT() - DF);
+				std::cout << "プレイヤーに" << (enemy->GetAT() - DF) << "のダメージ" << std::endl;
+			}
+			else
+				if ((enemy->GetAT() - DF) <= 0)
+				{
+
+					std::cout << "ガード成功" << std::endl;
+				}
+		}
+		break;
+	}
+
+}

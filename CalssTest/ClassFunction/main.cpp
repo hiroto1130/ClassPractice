@@ -8,6 +8,7 @@ int main()
 
 	player->CommandSelect();
 	enemy->CommandSelect();
+	player->BattleProcess(enemy);
 
 	delete player;
 	delete enemy;

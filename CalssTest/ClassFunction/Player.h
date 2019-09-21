@@ -22,6 +22,8 @@ public:
 
 	// コマンド選択関数
 	void CommandSelect();
+
+	void BattleProcess(Enemy* enemy);
 };
 
 
