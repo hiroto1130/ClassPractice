@@ -38,12 +38,12 @@ int Player::GetMoveSelect()
 	return MoveSelect;
 }
 
-int Player::GetAT()
+int Player::GetAt()
 {
 	return AT;
 }
 
-int Player::GetDF()
+int Player::GetDf()
 {
 	return DF;
 }
