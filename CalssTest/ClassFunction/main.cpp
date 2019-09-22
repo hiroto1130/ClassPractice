@@ -22,6 +22,9 @@ int main()
 		// 敵の行動選択
         slime->CommandSelect();
 
+		// 敵の戦闘処理
+		system->EnemyBattleProcess(slime,warrior);
+
 		// プレイヤーの死亡判定
 		system->WarriorDeathJudge(warrior);
 
