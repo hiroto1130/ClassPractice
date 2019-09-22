@@ -27,15 +27,14 @@ public:
 	void SetAT(int at);
 	void SetDF(int df);
 
-
-	enum PlayerMove
-	{
-		temp,
-		attack,
-		skill,
-		heel
-	};
 };
 
+enum Move
+{
+	temp,
+	attack,
+	skill,
+	heel
+};
 
 #endif

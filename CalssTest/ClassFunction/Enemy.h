@@ -26,12 +26,4 @@ public:
 
 };
 
-enum EnemyMove
-{
-	temp,
-	attack,
-	skill,
-	heel
-};
-
 #endif
