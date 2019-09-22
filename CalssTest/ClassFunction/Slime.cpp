@@ -20,36 +20,32 @@ Slime::~Slime()
 void Slime::CommandSelect()
 {
 	std::mt19937 mt{ std::random_device{}() };
-	std::uniform_int_distribution<int> rand(1, 10);
-	MoveSelect = rand(mt);
+	std::uniform_int_distribution<int> Rand(1, 10);
+	rand = Rand(mt);
 
-	if (MoveSelect < 6)
+	if (HP > 0)
 	{
-		std::cout << "スライムの攻撃" << std::endl;
-
-	}
-	else
-		if (MoveSelect < 9 && MoveSelect > 6)
+		if (rand < 6)
 		{
-			std::cout << "スライムの体当たり" << std::endl;
+			std::cout << "スライムの攻撃" << std::endl;
+			MoveSelect = Move::attack;
 		}
 		else
-		{
-			std::cout << "スライムはぼーっとしている" << std::endl;
-		}
-
-};
-
-
-void Slime::DeathJudge()
-{
-	if (HP <= 0)
-	{
-		std::cout << "スライムを倒した" << std::endl;
+			if (rand < 9 && rand > 6)
+			{
+				std::cout << "スライムの体当たり" << std::endl;
+				MoveSelect = Move::skill;
+			}
+			else
+			{
+				std::cout << "スライムは回復している" << std::endl;
+				MoveSelect = Move::heel;
+			}
 	}
 	else
 	{
 
 	}
 };
+
 
