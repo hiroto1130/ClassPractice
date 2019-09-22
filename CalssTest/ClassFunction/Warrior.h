@@ -2,32 +2,28 @@
 #define HERO_H
 
 #include"Player.h"
-#include"Enemy.h"
 
-class Hero : public Player
+class Warrior : public Player
 {
 private:
 	bool SelectJudge;
 	int HeelVolume;
 public:
 	// コンストラクタ
-	Hero();
+	Warrior();
 	// デストラクタ
-	~Hero();
+	~Warrior();
 
 	// 取得関数
 	int GetSelectJudge();
+	int GetHeelVolume();
 
 	// 入力関数
 	void SetSelectJudge(bool Judge);
+	void SetHeelVolume(int heelVolume);
 
 	// コマンド選択関数
 	void CommandSelect();
-
-	void BattleProcess(Enemy* enemy);
-
-	// 死亡判定
-	void DeathJudge();
 };
 
 
