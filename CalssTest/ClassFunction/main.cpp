@@ -1,15 +1,20 @@
-﻿#include"Enemy.h"
-#include"Player.h"
+﻿#include"Slime.h"
+#include"Hero.h"
 
 int main()
 {
-	Player* player = new Player;
-	Enemy* enemy = new Enemy;
+	Hero* hero = new Hero;
+	Slime* slime = new Slime;
 
-	player->CommandSelect();
-	enemy->CommandSelect();
-	player->BattleProcess(enemy);
+	while (hero->GetHp() >= 0 && slime->GetHp() >= 0)
+	{
+		hero->CommandSelect();
+		// hero->CleanRog();
+		slime->CommandSelect();
+		hero->BattleProcess(slime);
+	}
 
-	delete player;
-	delete enemy;
+
+	delete hero;
+	delete slime;
 }

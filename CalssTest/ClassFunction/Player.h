@@ -1,29 +1,42 @@
 ﻿#ifndef PLAYER_H
 #define PLAYER_H
 
-#include"Status.h"
-#include"Enemy.h"
-
-class Player : public Status
+class Player
 {
-private:
-	bool SelectJudge;
+protected:
+	int HP;
+	int MP;
+	int MoveSelect;
+	int AT;
+	int DF;
 public:
 	// コンストラクタ
 	Player();
 	// デストラクタ
 	~Player();
-	
 	// 取得関数
-	int GetSelectJudge();
+	int GetHp();
+	int GetMp();
+	int GetMoveSelect();
+	int GetAT();
+	int GetDF();
+	// 設定関数
+	void SetHp(int hp);
+	void SetMp(int mp);
+	void SetMoveSelect(int moveSelect);
+	void SetAT(int at);
+	void SetDF(int df);
 
-	// 入力関数
-	void SetSelectJudge(bool Judge);
+	// ログ削除
+	void CleanRog();
 
-	// コマンド選択関数
-	void CommandSelect();
-
-	void BattleProcess(Enemy* enemy);
+	enum PlayerMove
+	{
+		temp,
+		attack,
+		skill,
+		heel
+	};
 };
 
 

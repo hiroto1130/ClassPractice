@@ -1,37 +1,58 @@
-﻿#include<stdio.h>
-#include<iostream>
-#include <random>
-#include <iostream>
-
-#include"Enemy.h"
+﻿#include"Enemy.h"
 
 Enemy::Enemy()
 {
+	HP = 10;
+	AT = 1;
+	DF = 1;
+	MoveSelect = 0;
 
-};
+}
 
 Enemy::~Enemy()
 {
+	HP = 0;
+	AT = 0;
+	DF = 0;
+	MoveSelect = 0;
+}
 
-};
-
-void Enemy::CommandSelect()
+int Enemy::GetHp()
 {
-	std::mt19937 mt{ std::random_device{}() };
-	std::uniform_int_distribution<int> rand(1,3);
-	MoveSelect = rand(mt);
+	return HP;
+}
 
-	switch (MoveSelect)
-	{
-	case 1:
-		std::cout << "敵の攻撃" << std::endl;
-		break;
-	case 2:
-		std::cout << "敵は防御している" << std::endl;
-		break;
-	case 3:
-		std::cout << "ぼーっとしている" << std::endl;
-		break;
-	}
+int Enemy::GetMoveSelect()
+{
+	return MoveSelect;
+}
 
-};
+int Enemy::GetAT()
+{
+	return AT;
+}
+
+int Enemy::GetDF()
+{
+	return DF;
+}
+
+void Enemy::SetHp(int hp)
+{
+	HP = hp;
+}
+
+void Enemy::SetMoveSelect(int moveSelect)
+{
+	MoveSelect = moveSelect;
+}
+
+void Enemy::SetAT(int at)
+{
+	AT = at;
+}
+
+void Enemy::SetDF(int df)
+{
+	DF = df;
+}

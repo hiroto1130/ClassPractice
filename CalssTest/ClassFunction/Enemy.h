@@ -1,16 +1,37 @@
 ﻿#ifndef ENEMY_H
 #define ENEMY_H
 
-#include"Status.h"
-
-class Enemy : public Status
+class Enemy
 {
-private:
-
+protected:
+	int HP;
+	int MoveSelect;
+	int AT;
+	int DF;
 public:
+	// コンストラクタ
 	Enemy();
+	// デストラクタ
 	~Enemy();
-	void CommandSelect();
+	// 取得関数
+	int GetHp();
+	int GetMoveSelect();
+	int GetAT();
+	int GetDF();
+	// 設定関数
+	void SetHp(int hp);
+	void SetMoveSelect(int moveSelect);
+	void SetAT(int at);
+	void SetDF(int df);
+
+};
+
+enum EnemyMove
+{
+	temp,
+	attack,
+	skill,
+	heel
 };
 
 #endif
