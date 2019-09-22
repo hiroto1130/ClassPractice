@@ -62,14 +62,14 @@ void System::WarriorBattleProcess(Slime* slime, Warrior* warrior)
 	case Move::attack:// 攻撃判定 
 
 		// ダメージを与えられるか
-		if ((warrior->GetAT() - slime->GetDF()) > 0)
+		if ((warrior->GetAt() - slime->GetDf()) > 0)
 		{
 			// ダメージ計算
-			slime->SetHp(slime->GetHp() - (warrior->GetAT() - slime->GetDF()));
-			std::cout << "敵に" << (warrior->GetAT() - slime->GetDF()) << "のダメージ" << std::endl;
+			slime->SetHp(slime->GetHp() - (warrior->GetAt() - slime->GetDf()));
+			std::cout << "敵に" << (warrior->GetAt() - slime->GetDf()) << "のダメージ" << std::endl;
 		}
 		else
-			if ((warrior->GetAT() - slime->GetDF()) <= 0)
+			if ((warrior->GetAt() - slime->GetDf()) <= 0)
 			{
 				std::cout << "効果は無いようだ..." << std::endl;
 			}
@@ -80,14 +80,14 @@ void System::WarriorBattleProcess(Slime* slime, Warrior* warrior)
 	case Move::skill:// スキル判定
 
 		// ダメージを与えられるか
-		if (((warrior->GetAT() * 2) - slime->GetDF()) > 0)
+		if (((warrior->GetAt() * 2) - slime->GetDf()) > 0)
 		{
 			// ダメージ計算
-			slime->SetHp(slime->GetHp() - ((warrior->GetAT() * 2) - slime->GetDF()));
-			std::cout << "敵に" << ((warrior->GetAT() * 2) - slime->GetDF()) << "のダメージ" << std::endl;
+			slime->SetHp(slime->GetHp() - ((warrior->GetAt() * 2) - slime->GetDf()));
+			std::cout << "敵に" << ((warrior->GetAt() * 2) - slime->GetDf()) << "のダメージ" << std::endl;
 		}
 		else
-			if ((warrior->GetAT() - slime->GetDF()) <= 0)
+			if ((warrior->GetAt() - slime->GetDf()) <= 0)
 			{
 				std::cout << "効果は無いようだ..." << std::endl;
 			}
@@ -148,11 +148,62 @@ void System::EnemyBattleProcess(Slime* slime, Warrior* warrior)
 	{
 	case Move::attack:
 
+		// ダメージを与えられるか
+		if ((slime->GetAt() - warrior->GetDf()) > 0)
+		{
+			// ダメージ計算
+			warrior->SetHp(warrior->GetHp() - (slime->GetAt() - warrior->GetDf()));
+			std::cout << "プレイヤーに" << (slime->GetAt() - warrior->GetDf()) << "のダメージ" << std::endl;
+		}
+		else
+			if ((slime->GetAt() - warrior->GetDf()) <= 0)
+			{
+				std::cout << "　　　　miss　　　　" << std::endl;
+			}
 
 		break;
 	case Move::skill:
+
+		// ダメージを与えられるか
+		if (((slime->GetAt() * 2) - warrior->GetDf()) > 0)
+		{
+			// ダメージ計算
+			warrior->SetHp(warrior->GetHp() - ((slime->GetAt() * 2) - warrior->GetDf()));
+			std::cout << "プレイヤーに" << ((slime->GetAt() * 2) - warrior->GetDf()) << "のダメージ" << std::endl;
+		}
+		else
+			if ((slime->GetAt() - warrior->GetDf()) <= 0)
+			{
+				std::cout << "　　　　miss　　　　" << std::endl;
+			}
+
 		break;
 	case Move::heel:
+
+		// 回復できるか
+		if (slime->GetHp() < 10)
+		{
+			std::mt19937 mt{ std::random_device{}() };
+			std::uniform_int_distribution<int> rand(1, 2);
+
+			slime->SetHeelVolume(rand(mt));
+
+			if (slime->GetHp() + slime->GetHeelVolume() > 10)
+			{
+				slime->SetHp(10);
+				std::cout << "体力を" << ((slime->GetHp() + slime->GetHeelVolume()) - 10) << "回復した" << std::endl;
+			}
+			else
+			{
+				slime->SetHp(slime->GetHp() + slime->GetHeelVolume());
+
+				std::cout << "体力を" << slime->GetHeelVolume() << "回復した" << std::endl;
+			}
+		}
+		else
+		{
+			std::cout << "効果は無いようだ..." << std::endl;
+		}
 		break;
 	}
 
@@ -178,12 +229,14 @@ void System::TurnSelect(Warrior* warrior,Slime* slime)
 	{
 		DoRog();
 		std::cout << "コマンドを選択してください" << std::endl;
-		std::cout << "ターンを進める : 1 " << std::endl;
+		std::cout << "ターンを進める : 1 自身のステータス表示 : 2" << std::endl;
 
-		std::cin >> ActionSelect;
 
 		while (SelectJudge == false)
 		{
+		
+			std::cin >> ActionSelect;
+			
 			if (ActionSelect == 0)
 			{
 				std::cin.clear();
@@ -195,12 +248,29 @@ void System::TurnSelect(Warrior* warrior,Slime* slime)
 					SetSelectJudge(true);
 					CleanRog();
 				
-				}
-				else
-				{
-					std::cin.clear();
-					std::cin.ignore();
-				}
+				}else
+					if (ActionSelect == 2)
+					{
+						CleanRog();
+						std::cout << "/////////////////////////////////////////////////////////////////////" << std::endl;
+						std::cout << "                                                                     " << std::endl;
+						std::cout << "                           ステータス                                " << std::endl;
+						std::cout << "                                                                     " << std::endl;
+						std::cout << "            HP : "<<warrior->GetHp()<<"      MP : " <<warrior->GetMp()<<"      AT : "<<warrior->GetAt()<<"      DF : "<<warrior->GetDf()<<"              " << std::endl;
+						std::cout << "                                                                     " << std::endl;
+						std::cout << "/////////////////////////////////////////////////////////////////////" << std::endl;
+
+						DoRog();
+						std::cout << "コマンドを選択してください" << std::endl;
+						std::cout << "ターンを進める : 1 自身のステータス表示 : 2" << std::endl;
+						std::cin.clear();
+						std::cin.ignore();
+					}
+					else
+					{
+						std::cin.clear();
+						std::cin.ignore();
+					}
 
 		}
 
