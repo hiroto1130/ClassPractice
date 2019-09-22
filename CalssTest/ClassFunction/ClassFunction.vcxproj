@@ -128,8 +128,10 @@
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="Slime.cpp" />
     <ClCompile Include="Hero.cpp" />
+    <ClCompile Include="System.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="System.h" />
     <ClInclude Include="Hero.h" />
     <ClInclude Include="Slime.h" />
     <ClInclude Include="Enemy.h" />

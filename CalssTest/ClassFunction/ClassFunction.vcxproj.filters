@@ -25,6 +25,12 @@
     <Filter Include="ソース ファイル\Enemy">
       <UniqueIdentifier>{5ea6ecc8-4dbc-48d8-816a-a1eefa8768b2}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ヘッダー ファイル\System">
+      <UniqueIdentifier>{002d261c-3982-437f-853c-305e5a0a30e4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\System">
+      <UniqueIdentifier>{d19e37be-4aaa-4e76-86c3-e729f40a86fa}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Enemy.h">
@@ -38,6 +44,9 @@
     </ClInclude>
     <ClInclude Include="Hero.h">
       <Filter>ヘッダー ファイル\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="System.h">
+      <Filter>ヘッダー ファイル\System</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -55,6 +64,9 @@
     </ClCompile>
     <ClCompile Include="Hero.cpp">
       <Filter>ソース ファイル\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="System.cpp">
+      <Filter>ソース ファイル\System</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
