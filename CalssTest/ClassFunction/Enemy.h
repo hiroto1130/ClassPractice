@@ -16,8 +16,8 @@ public:
 	// 取得関数
 	int GetHp();
 	int GetMoveSelect();
-	int GetAT();
-	int GetDF();
+	int GetAt();
+	int GetDf();
 	// 設定関数
 	void SetHp(int hp);
 	void SetMoveSelect(int moveSelect);

@@ -3,7 +3,7 @@
 Enemy::Enemy()
 {
 	HP = 10;
-	AT = 1;
+	AT = 2;
 	DF = 1;
 	MoveSelect = 0;
 
@@ -27,12 +27,12 @@ int Enemy::GetMoveSelect()
 	return MoveSelect;
 }
 
-int Enemy::GetAT()
+int Enemy::GetAt()
 {
 	return AT;
 }
 
-int Enemy::GetDF()
+int Enemy::GetDf()
 {
 	return DF;
 }

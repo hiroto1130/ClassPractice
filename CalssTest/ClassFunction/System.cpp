@@ -12,38 +12,38 @@ System::System()
 {
 	SelectJudge = false;
 	ActionSelect = 0;
-}
+};
 
 System::~System()
 {
 	SelectJudge = false;
 	ActionSelect = 0;
-}
+};
 
 int System::GetActionSelect()
 {
 	return ActionSelect;
-}
+};
 
 void System::SetActionSelect(int actionSelect)
 {
 	ActionSelect = actionSelect;
-}
+};
 
 int System::GetSelectJudge()
 {
 	return SelectJudge;
-}
+};
 
 void System::SetSelectJudge(bool selectJudge)
 {
 	SelectJudge = selectJudge;
-}
+};
 
 void System::CleanRog()
 {
 	std::system("cls");
-}
+};
 
 void System::DoRog()
 {
@@ -51,10 +51,10 @@ void System::DoRog()
 	{
 		std::cout << std::endl;
 	}
-}
+};
 
 
-void System::WarriorBattleProcess(Slime* slime,Warrior* warrior)
+void System::WarriorBattleProcess(Slime* slime, Warrior* warrior)
 {
 
 	switch (warrior->GetMoveSelect())
@@ -125,7 +125,7 @@ void System::WarriorBattleProcess(Slime* slime,Warrior* warrior)
 		break;
 	}
 
-}
+};
 
 void System::WarriorDeathJudge(Warrior* warrior)
 {
@@ -157,7 +157,7 @@ void System::EnemyBattleProcess(Slime* slime, Warrior* warrior)
 	}
 
 
-}
+};
 
 void System::SlimeDeathJudge(Slime* slime)
 {
