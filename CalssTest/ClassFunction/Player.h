@@ -27,8 +27,6 @@ public:
 	void SetAT(int at);
 	void SetDF(int df);
 
-	// ログ削除
-	void CleanRog();
 
 	enum PlayerMove
 	{

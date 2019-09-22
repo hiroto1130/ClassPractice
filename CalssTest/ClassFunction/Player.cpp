@@ -8,7 +8,7 @@ Player::Player()
 {
 	HP = 10;
 	MP = 5;
-	AT = 1;
+	AT = 2;
 	DF = 1;
 	MoveSelect = 0;
 
@@ -73,7 +73,3 @@ void Player::SetDF(int df)
 	DF = df;
 }
 
-void Player::CleanRog()
-{
-	std::system("cls");
-}
