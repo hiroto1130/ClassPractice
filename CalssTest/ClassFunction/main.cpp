@@ -1,27 +1,39 @@
 ﻿#include"Slime.h"
-#include"Hero.h"
+#include"Warrior.h"
 #include"System.h"
 
 int main()
 {
-	Hero* hero = new Hero;
+	Warrior* warrior = new Warrior;
 	Slime* slime = new Slime;
 	System* system = new System;
 
-	while (hero->GetHp() > 0 && slime->GetHp() > 0)
+	while (warrior->GetHp() > 0 && slime->GetHp() > 0)
 	{
-		hero->CommandSelect();
-		system->CleanRog();
-		hero->BattleProcess(slime);
+		// プレイヤーの行動選択
+		warrior->CommandSelect();
 
+		// プレイヤーの戦闘処理
+		system->WarriorBattleProcess(slime, warrior);
+
+		// 空処理
+		system->DoRog();
+
+		// 敵の行動選択
         slime->CommandSelect();
-		
-		hero->DeathJudge();
-		slime->DeathJudge();
+
+		// プレイヤーの死亡判定
+		system->WarriorDeathJudge(warrior);
+
+		// 敵の死亡判定
+		system->SlimeDeathJudge(slime);
+
+		// ターンループ処理
+		system->TurnSelect(warrior, slime);
 	}
 
 
-	delete hero;
+	delete warrior;
 	delete slime;
 	delete system;
 }
