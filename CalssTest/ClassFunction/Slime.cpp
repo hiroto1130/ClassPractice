@@ -17,6 +17,16 @@ Slime::~Slime()
 
 };
 
+int Slime::GetHeelVolume()
+{
+	return HeelVolume;
+}
+
+void Slime::SetHeelVolume(int heelVolume)
+{
+	HeelVolume = heelVolume;
+}
+
 void Slime::CommandSelect()
 {
 	std::mt19937 mt{ std::random_device{}() };
