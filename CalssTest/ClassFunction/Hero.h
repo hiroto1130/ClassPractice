@@ -8,6 +8,7 @@ class Hero : public Player
 {
 private:
 	bool SelectJudge;
+	int HeelVolume;
 public:
 	// コンストラクタ
 	Hero();

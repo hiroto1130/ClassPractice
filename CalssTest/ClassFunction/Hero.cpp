@@ -8,11 +8,13 @@
 
 Hero::Hero()
 {
+	HeelVolume = 0;
 	SelectJudge = false;
 }
 
 Hero::~Hero()
 {
+	HeelVolume = 0;
 	SelectJudge = false;
 }
 
@@ -58,7 +60,7 @@ void Hero::CommandSelect()
 				else
 					if (MoveSelect == 3) // 回復
 					{
-
+						SetSelectJudge(true);
 						std::cout << "プレイヤーは回復の呪文を唱えた" << std::endl;
 						
 					}else
@@ -100,8 +102,8 @@ void Hero::BattleProcess(Enemy* enemy)
 		if (((AT * 2) - enemy->GetDF()) > 0)
 		{
 			// ダメージ計算
-			enemy->SetHp(enemy->GetHp() - (AT - enemy->GetDF()));
-			std::cout << "敵に" << (AT - enemy->GetDF()) << "のダメージ" << std::endl;
+			enemy->SetHp(enemy->GetHp() - ((AT * 2) - enemy->GetDF()));
+			std::cout << "敵に" << ((AT * 2) - enemy->GetDF()) << "のダメージ" << std::endl;
 		}
 		else
 			if ((AT - enemy->GetDF()) <= 0)
@@ -124,10 +126,12 @@ void Hero::BattleProcess(Enemy* enemy)
 			if (HP + HeelVolume > 10)
 			{
 				HP = 10;
+				std::cout << "体力を" << ((HP + HeelVolume) - 10)  << "回復した" << std::endl;
 			}
 			else
 			{
 				HP = HP + HeelVolume;
+				std::cout << "体力を" << HeelVolume << "回復した"<< std::endl;
 			}
 		}
 		else
@@ -145,6 +149,13 @@ void Hero::DeathJudge()
 	if (HP <= 0)
 	{
 		std::cout << "プレイヤーは死亡した" << std::endl;
+		
+	}
+	else
+	{
+		SetSelectJudge(false);
+		std::cin.clear();
+		std::cin.ignore();
 	}
 };
 
