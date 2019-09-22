@@ -10,6 +10,9 @@ int main()
 
 	while (warrior->GetHp() > 0 && slime->GetHp() > 0)
 	{
+		// 空処理
+		system->DoRog();
+
 		// プレイヤーの行動選択
 		warrior->CommandSelect();
 

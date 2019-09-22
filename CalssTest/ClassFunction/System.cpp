@@ -225,7 +225,7 @@ void System::SlimeDeathJudge(Slime* slime)
 
 void System::TurnSelect(Warrior* warrior,Slime* slime)
 {
-	if (slime->GetHp() > 0)
+	if (slime->GetHp() > 0 && warrior->GetHp() > 0)
 	{
 		DoRog();
 		std::cout << "コマンドを選択してください" << std::endl;
