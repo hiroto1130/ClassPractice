@@ -44,27 +44,3 @@ void Enemy::ShoeMp()
 	std::cout << MP << std::endl;
 }
 
-EnemyTwo::EnemyTwo()
-{
-	std::cout << "EnemyTwo" << std::endl;
-}
-
-EnemyTwo::~EnemyTwo()
-{
-	std::cout << "~EnemyTwo" << std::endl;
-}
-
-int EnemyTwo::GetAt()
-{
-	return AT;
-}
-
-void EnemyTwo::SetAt(int at)
-{
-	AT = at;
-}
-
-void EnemyTwo::ShowAt()
-{
-	std::cout << AT << std::endl;
-}

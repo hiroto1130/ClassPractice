@@ -1,33 +1,26 @@
-#include"Enemy.h"
-
-namespace enemy
-{
-	const int HP = 100;
-	const int MP = 50;
-	const int AT = 20;
-
-}
+#include"Slime.h"
 
 
+// ----------------------------------------------------- //
+//                                                       //
+//       クラスの継承、コンストラクタ、デストラクタ      //
+//                                                       //
+// ----------------------------------------------------- //
 
 int main()
 {
-	EnemyTwo *enemyTwo = new EnemyTwo;
+	Slime *slime = new Slime;
 
-	enemyTwo->SetAt(enemy::AT);
-	enemyTwo->ShowAt();
+	slime->SetAt(10);
+	slime->ShowAt();
 
-	enemyTwo->SetHp(enemy::HP);
-	enemyTwo->ShowHp();
+	slime->SetHp(100);
+	slime->ShowHp();
 
-	enemyTwo->SetMp(enemy::MP);
-	enemyTwo->ShoeMp();
-
-
-	delete enemyTwo;
-
-	
+	slime->SetMp(50);
+	slime->ShoeMp();
 
 
+	delete slime;
 
 }

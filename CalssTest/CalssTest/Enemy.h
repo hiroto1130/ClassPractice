@@ -20,19 +20,6 @@ public:
 	void ShoeMp();
 };
 
-class EnemyTwo : public Enemy
-{
-private:
-	int AT;
-public:
-	// コンストラクタ
-	EnemyTwo();
-	// デストラクタ
-	~EnemyTwo();
-	// 関数
-	int GetAt();
-	void SetAt(int at);
-	void ShowAt();
-};
+
 
 #endif
