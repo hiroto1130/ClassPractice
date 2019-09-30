@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Main">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Class">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Class\CharaCter">
+      <UniqueIdentifier>{1a425c6d-0202-4eb0-a0b2-88fef9343a5c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Class\Enemy">
+      <UniqueIdentifier>{2e45f86d-c0fc-4411-80dd-0b68e20cdd86}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Class\Player">
+      <UniqueIdentifier>{2d6cbb0e-12fa-4c0c-9bb7-a4fc2a30f782}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Class\Enemy\Slime">
+      <UniqueIdentifier>{1088507e-c650-4897-a6c4-dc4002f7d23d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Class\Enemy\Drakee">
+      <UniqueIdentifier>{7318beff-3b1a-4689-90b7-5cbd97ec5efb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Class\Player\Witch">
+      <UniqueIdentifier>{d4a546e8-b477-4027-a5e2-03917dc7ac11}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Class\Player\Warrior">
+      <UniqueIdentifier>{fb66d5e7-a06f-4271-b0bd-c294ee13820a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="System">
+      <UniqueIdentifier>{25c6aa01-d8d2-488f-8113-bd79ff6fc1c6}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Main.cpp">
+      <Filter>Main</Filter>
+    </ClCompile>
+    <ClCompile Include="CharaCter.cpp">
+      <Filter>Class\CharaCter</Filter>
+    </ClCompile>
+    <ClCompile Include="Slime.cpp">
+      <Filter>Class\Enemy\Slime</Filter>
+    </ClCompile>
+    <ClCompile Include="Drakee.cpp">
+      <Filter>Class\Enemy\Drakee</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="CharaCter.h">
+      <Filter>Class\CharaCter</Filter>
+    </ClInclude>
+    <ClInclude Include="Slime.h">
+      <Filter>Class\Enemy\Slime</Filter>
+    </ClInclude>
+    <ClInclude Include="Drakee.h">
+      <Filter>Class\Enemy\Drakee</Filter>
+    </ClInclude>
+    <ClInclude Include="BattleSystem.h">
+      <Filter>System</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
